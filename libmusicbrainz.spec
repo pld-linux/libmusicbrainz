@@ -45,7 +45,7 @@ develop applications which will use libmusicbrainz.
 
 %description devel -l pl
 Pliki nag³ówkowe potrzebne programistom do rozwijania aplikacji
-u¿ywaj±cych biblioteki libmusicbrainz
+u¿ywaj±cych biblioteki libmusicbrainz.
 
 %package static
 Summary:	Static libmusicbrainz libraries
@@ -58,7 +58,7 @@ Obsoletes:	musicbrainz-static
 Static libmusicbrainz libraries.
 
 %description static -l pl
-Staryczne biblioteki libmusicbrainz.
+Statyczne biblioteki libmusicbrainz.
 
 %prep
 %setup -q
