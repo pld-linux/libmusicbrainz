@@ -14,6 +14,7 @@ BuildRequires:	libtool
 Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	musicbrainz
+Provides:		musicbrainz
 
 %description
 The MusicBrainz client library allows applications to make metadata
@@ -30,6 +31,7 @@ Summary:	Headers for developing programs that will use libmusicbrainz
 Summary(pl):	Pliki nag³ówkowe do rozwijania programów u¿ywaj±cych libmusicbrainz
 Group:		Development/Libraries
 Requires:	%{name} = %{version}
+Provides:	musicbrainz-devel
 Obsoletes:	musicbrainz-devel
 
 %description devel
