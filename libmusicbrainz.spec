@@ -1,18 +1,19 @@
 Summary:	A software library for accesing MusicBrainz servers
 Summary(pl):	Biblioteka umo¿liwiaj±ca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz
-Version:	2.0.1
-Release:	2
+Version:	2.0.2
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.musicbrainz.org/pub/musicbrainz/%{name}-%{version}.tar.gz
-# Source0-md5:	dbfe180922276884536a71c0c3575fe2
+# Source0-md5:	28226090a5bf5bc844634e1d4faf6334
 Patch0:		%{name}-system-expat.patch
 URL:		http://www.musicbrainz.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
 BuildRequires:	expat-devel
+BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	musicbrainz
@@ -33,6 +34,8 @@ Summary:	Headers for developing programs that will use libmusicbrainz
 Summary(pl):	Pliki nag³ówkowe do rozwijania programów u¿ywaj±cych libmusicbrainz
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+Requires:	expat-devel
+Requires:	libstdc++-devel
 Provides:	musicbrainz-devel
 Obsoletes:	musicbrainz-devel
 
