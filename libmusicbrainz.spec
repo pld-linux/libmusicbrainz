@@ -2,7 +2,7 @@ Summary:	A software library for accesing MusicBrainz servers
 Summary(pl):	Biblioteka umo¿liwiaj±ca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz
 Version:	2.0.1
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		Libraries
@@ -32,7 +32,7 @@ oraz tworzenie indeksów z p³yt CD audio.
 Summary:	Headers for developing programs that will use libmusicbrainz
 Summary(pl):	Pliki nag³ówkowe do rozwijania programów u¿ywaj±cych libmusicbrainz
 Group:		Development/Libraries
-Requires:	%{name} = %{version}
+Requires:	%{name} = %{epoch}:%{version}-%{release}
 Provides:	musicbrainz-devel
 Obsoletes:	musicbrainz-devel
 
@@ -48,7 +48,7 @@ u¿ywaj±cych biblioteki libmusicbrainz
 Summary:	Static libmusicbrainz libraries
 Summary(pl):	Biblioteki statyczne libmusicbrainz
 Group:		Development/Libraries
-Requires:	%{name}-devel = %{version}
+Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Obsoletes:	musicbrainz-static
 
 %description static
