@@ -7,14 +7,15 @@ Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.musicbrainz.org/pub/musicbrainz/%{name}-%{version}.tar.gz
+Patch0:		%{name}-system-expat.patch
 URL:		http://www.musicbrainz.org/
 BuildRequires:	autoconf
 BuildRequires:	automake
+BuildRequires:	expat-devel
 BuildRequires:	libtool
-Requires(post,postun):	/sbin/ldconfig
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 Obsoletes:	musicbrainz
-Provides:		musicbrainz
+Provides:	musicbrainz
 
 %description
 The MusicBrainz client library allows applications to make metadata
@@ -57,6 +58,7 @@ Staryczne biblioteki libmusicbrainz.
 
 %prep
 %setup -q
+%patch -p1
 
 %build
 %{__libtoolize}
