@@ -7,6 +7,7 @@ Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.musicbrainz.org/pub/musicbrainz/%{name}-%{version}.tar.gz
+# Source0-md5:	dbfe180922276884536a71c0c3575fe2
 Patch0:		%{name}-system-expat.patch
 URL:		http://www.musicbrainz.org/
 BuildRequires:	autoconf
