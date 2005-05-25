@@ -1,0 +1,11 @@
+--- libmusicbrainz-2.1.1/lib/comhttpsocket.cpp.orig	2004-03-16 01:34:22.000000000 +0100
++++ libmusicbrainz-2.1.1/lib/comhttpsocket.cpp	2005-05-25 15:54:24.519854392 +0200
+@@ -194,7 +194,7 @@
+ 	// advance to the data now, if there is any in this first buffer. 
+ 	char* pData = strstr(HeaderBuffer, "\r\n\r\n");
+ 	if (pData) pData += 4;
+-	int nOffset = (int)pData - (int)HeaderBuffer;
++	int nOffset = (int)(pData - HeaderBuffer);
+ 	if (nTotal - nOffset >= nLen) // case 1: entire requested read is in header chunk
+ 	{
+ 		memcpy(pBuffer, pData, nLen);
