@@ -14,9 +14,9 @@ BuildRequires:	automake
 BuildRequires:	expat-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
-Obsoletes:	musicbrainz
 Provides:	musicbrainz
+Obsoletes:	musicbrainz
+BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
 The MusicBrainz client library allows applications to make metadata
