@@ -15,7 +15,6 @@ BuildRequires:	automake
 BuildRequires:	expat-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-%pyrequires_eq  python
 BuildRequires:	python-ctypes
 Provides:	musicbrainz
 Obsoletes:	musicbrainz
@@ -64,11 +63,16 @@ Statyczne biblioteki libmusicbrainz.
 
 %package -n python-musicbrainz
 Summary:	Python bindings for libmusicbrainz
-Group:		?
+Summary(pl):	Wi±zania Pythona do libmusicbrainz
+Group:		Libraries/Python
 Requires:	%{name} = %{epoch}:%{version}-%{release}
+%pyrequires_eq	python-libs
 
 %description -n python-musicbrainz
 Python bindings for libmusicbrainz.
+
+%description -n python-musicbrainz -l pl
+Wi±zania Pythona do libmusicbrainz.
 
 %prep
 %setup -q
