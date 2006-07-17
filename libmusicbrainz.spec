@@ -1,14 +1,14 @@
 Summary:	A software library for accesing MusicBrainz servers
 Summary(pl):	Biblioteka umo¿liwiaj±ca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz
-Version:	2.1.2
-Release:	3
+Version:	2.1.3
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.musicbrainz.org/pub/musicbrainz/%{name}-%{version}.tar.gz
-# Source0-md5:	88d35af903665fecbdee77eb6d5e6cdd
-Patch0:		%{name}-py-lib64.patch
+# Source0-md5:	330cb7e3da57d7a4800bdc22e4608c51
+Patch0:		%{name}-ac.patch
 URL:		http://www.musicbrainz.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
