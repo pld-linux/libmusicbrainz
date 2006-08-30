@@ -2,7 +2,7 @@ Summary:	A software library for accesing MusicBrainz servers
 Summary(pl):	Biblioteka umo¿liwiaj±ca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz
 Version:	2.1.4
-Release:	1
+Release:	2
 Epoch:		1
 License:	LGPL
 Group:		Libraries
@@ -15,7 +15,7 @@ BuildRequires:	automake
 BuildRequires:	expat-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
-BuildRequires:	python-ctypes
+BuildRequires:	python-modules >= 1:2.5
 Provides:	musicbrainz
 Obsoletes:	musicbrainz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
