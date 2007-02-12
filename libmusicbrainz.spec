@@ -1,5 +1,5 @@
 Summary:	A software library for accesing MusicBrainz servers
-Summary(pl):	Biblioteka umoøliwiaj±ca korzystanie z serwerÛw MusicBrainz
+Summary(pl.UTF-8):   Biblioteka umo≈ºliwiajƒÖca korzystanie z serwer√≥w MusicBrainz
 Name:		libmusicbrainz
 Version:	2.1.4
 Release:	3
@@ -25,14 +25,14 @@ The MusicBrainz client library allows applications to make metadata
 lookup to a MusicBrainz server, generate signatures from WAV data and
 create CD Index Disk ids from audio CD roms.
 
-%description -l pl
-Biblioteka kliencka MusicBrainz pozwala aplikacjom na wysy≥anie
-zapytaÒ do serwerÛw MusicBrainz, generowanie sygnatur z plikÛw WAV
-oraz tworzenie indeksÛw z p≥yt CD audio.
+%description -l pl.UTF-8
+Biblioteka kliencka MusicBrainz pozwala aplikacjom na wysy≈Çanie
+zapyta≈Ñ do serwer√≥w MusicBrainz, generowanie sygnatur z plik√≥w WAV
+oraz tworzenie indeks√≥w z p≈Çyt CD audio.
 
 %package devel
 Summary:	Headers for developing programs that will use libmusicbrainz
-Summary(pl):	Pliki nag≥Ûwkowe do rozwijania programÛw uøywaj±cych libmusicbrainz
+Summary(pl.UTF-8):   Pliki nag≈Ç√≥wkowe do rozwijania program√≥w u≈ºywajƒÖcych libmusicbrainz
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	expat-devel
@@ -44,13 +44,13 @@ Obsoletes:	musicbrainz-devel
 This package contains the headers that programmers will need to
 develop applications which will use libmusicbrainz.
 
-%description devel -l pl
-Pliki nag≥Ûwkowe potrzebne programistom do rozwijania aplikacji
-uøywaj±cych biblioteki libmusicbrainz.
+%description devel -l pl.UTF-8
+Pliki nag≈Ç√≥wkowe potrzebne programistom do rozwijania aplikacji
+u≈ºywajƒÖcych biblioteki libmusicbrainz.
 
 %package static
 Summary:	Static libmusicbrainz libraries
-Summary(pl):	Biblioteki statyczne libmusicbrainz
+Summary(pl.UTF-8):   Biblioteki statyczne libmusicbrainz
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Obsoletes:	musicbrainz-static
@@ -58,12 +58,12 @@ Obsoletes:	musicbrainz-static
 %description static
 Static libmusicbrainz libraries.
 
-%description static -l pl
+%description static -l pl.UTF-8
 Statyczne biblioteki libmusicbrainz.
 
 %package -n python-musicbrainz
 Summary:	Python bindings for libmusicbrainz
-Summary(pl):	Wi±zania Pythona do libmusicbrainz
+Summary(pl.UTF-8):   WiƒÖzania Pythona do libmusicbrainz
 Group:		Libraries/Python
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 %pyrequires_eq	python-libs
@@ -71,8 +71,8 @@ Requires:	%{name} = %{epoch}:%{version}-%{release}
 %description -n python-musicbrainz
 Python bindings for libmusicbrainz.
 
-%description -n python-musicbrainz -l pl
-Wi±zania Pythona do libmusicbrainz.
+%description -n python-musicbrainz -l pl.UTF-8
+WiƒÖzania Pythona do libmusicbrainz.
 
 %prep
 %setup -q
