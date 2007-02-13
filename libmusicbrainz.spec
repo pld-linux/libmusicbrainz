@@ -1,5 +1,5 @@
 Summary:	A software library for accesing MusicBrainz servers
-Summary(pl.UTF-8):   Biblioteka umożliwiająca korzystanie z serwerów MusicBrainz
+Summary(pl.UTF-8):	Biblioteka umożliwiająca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz
 Version:	2.1.4
 Release:	3
@@ -32,7 +32,7 @@ oraz tworzenie indeksów z płyt CD audio.
 
 %package devel
 Summary:	Headers for developing programs that will use libmusicbrainz
-Summary(pl.UTF-8):   Pliki nagłówkowe do rozwijania programów używających libmusicbrainz
+Summary(pl.UTF-8):	Pliki nagłówkowe do rozwijania programów używających libmusicbrainz
 Group:		Development/Libraries
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 Requires:	expat-devel
@@ -50,7 +50,7 @@ używających biblioteki libmusicbrainz.
 
 %package static
 Summary:	Static libmusicbrainz libraries
-Summary(pl.UTF-8):   Biblioteki statyczne libmusicbrainz
+Summary(pl.UTF-8):	Biblioteki statyczne libmusicbrainz
 Group:		Development/Libraries
 Requires:	%{name}-devel = %{epoch}:%{version}-%{release}
 Obsoletes:	musicbrainz-static
@@ -63,7 +63,7 @@ Statyczne biblioteki libmusicbrainz.
 
 %package -n python-musicbrainz
 Summary:	Python bindings for libmusicbrainz
-Summary(pl.UTF-8):   Wiązania Pythona do libmusicbrainz
+Summary(pl.UTF-8):	Wiązania Pythona do libmusicbrainz
 Group:		Libraries/Python
 Requires:	%{name} = %{epoch}:%{version}-%{release}
 %pyrequires_eq	python-libs
