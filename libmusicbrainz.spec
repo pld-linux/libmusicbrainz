@@ -1,14 +1,13 @@
 Summary:	A software library for accesing MusicBrainz servers
 Summary(pl.UTF-8):	Biblioteka umożliwiająca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz
-Version:	2.1.4
-Release:	3
+Version:	2.1.5
+Release:	1
 Epoch:		1
 License:	LGPL
 Group:		Libraries
 Source0:	ftp://ftp.musicbrainz.org/pub/musicbrainz/%{name}-%{version}.tar.gz
-# Source0-md5:	98bf1e102dda3b6ec3e72e1426445489
-Patch0:		%{name}-ac.patch
+# Source0-md5:	d5e19bb77edd6ea798ce206bd05ccc5f
 URL:		http://www.musicbrainz.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -16,6 +15,7 @@ BuildRequires:	expat-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
 BuildRequires:	python-modules >= 1:2.5
+BuildRequires:	rpm-pythonprov
 Provides:	musicbrainz
 Obsoletes:	musicbrainz
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -76,7 +76,6 @@ Wiązania Pythona do libmusicbrainz.
 
 %prep
 %setup -q
-%patch0 -p1
 
 %build
 %{__libtoolize}
@@ -102,6 +101,8 @@ LD_LIBRARY_PATH=../lib/.libs python setup.py install \
 	--optimize=2
 cd ..
 
+%py_postclean
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -111,20 +112,21 @@ rm -rf $RPM_BUILD_ROOT
 %files
 %defattr(644,root,root,755)
 %doc AUTHORS README TODO
-%attr(755,root,root) %{_libdir}/lib*.so.*.*
+%attr(755,root,root) %{_libdir}/libmusicbrainz.so.*.*.*
 
 %files devel
 %defattr(644,root,root,755)
 %doc ChangeLog
-%attr(755,root,root) %{_libdir}/lib*.so
-%{_libdir}/lib*.la
-%{_includedir}/*
-%{_pkgconfigdir}/*
+%attr(755,root,root) %{_libdir}/libmusicbrainz.so
+%{_libdir}/libmusicbrainz.la
+%{_includedir}/musicbrainz
+%{_pkgconfigdir}/libmusicbrainz.pc
 
 %files static
 %defattr(644,root,root,755)
-%{_libdir}/lib*.a
+%{_libdir}/libmusicbrainz.a
 
 %files -n python-musicbrainz
 %defattr(644,root,root,755)
-%{py_sitescriptdir}/*.py[co]
+%{py_sitescriptdir}/musicbrainz.py[co]
+%{py_sitescriptdir}/python_musicbrainz-*.egg-info
