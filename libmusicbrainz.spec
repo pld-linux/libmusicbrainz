@@ -15,6 +15,7 @@ BuildRequires:	automake
 BuildRequires:	expat-devel
 BuildRequires:	libstdc++-devel
 BuildRequires:	libtool
+BuildRequires:	python-devel
 BuildRequires:	python-modules >= 1:2.5
 BuildRequires:	rpm-pythonprov
 Provides:	musicbrainz
