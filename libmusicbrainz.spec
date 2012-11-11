@@ -2,7 +2,7 @@ Summary:	A software library for accesing MusicBrainz servers
 Summary(pl.UTF-8):	Biblioteka umożliwiająca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz
 Version:	2.1.5
-Release:	3
+Release:	4
 Epoch:		1
 License:	LGPL
 Group:		Libraries
