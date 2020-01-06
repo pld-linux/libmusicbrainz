@@ -6,10 +6,10 @@ Release:	7
 Epoch:		1
 License:	LGPL
 Group:		Libraries
-Source0:	ftp://ftp.musicbrainz.org/pub/musicbrainz/%{name}-%{version}.tar.gz
+Source0:	http://ftp.musicbrainz.org/pub/musicbrainz/historical/%{name}-%{version}.tar.gz
 # Source0-md5:	d5e19bb77edd6ea798ce206bd05ccc5f
 Patch0:		%{name}-gcc43.patch
-URL:		http://www.musicbrainz.org/
+URL:		https://musicbrainz.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
 BuildRequires:	expat-devel
