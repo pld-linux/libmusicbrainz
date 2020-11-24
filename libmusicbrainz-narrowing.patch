@@ -1,0 +1,50 @@
+--- libmusicbrainz-2.1.5/lib/signature.cpp.orig	2006-11-14 17:34:49.000000000 +0100
++++ libmusicbrainz-2.1.5/lib/signature.cpp	2020-11-24 21:09:36.749017364 +0100
+@@ -45,6 +45,7 @@
+    typedef long long llong;
+ #endif
+ 
++unsigned
+ char silenceTRM[] = { 0x7d, 0x15, 0x4f, 0x52, 0xb5, 0x36, 0x4f, 0xae, 
+                       0xb5, 0x8b, 0x06, 0x66, 0x82, 0x6c, 0x2b, 0xac, 0x00 };
+ 
+@@ -443,7 +444,7 @@
+ {
+     if (m_numBytesWritten < 2)
+     {
+-        strGUID = string(silenceTRM);
++        strGUID = string(reinterpret_cast<const char*>(silenceTRM));
+         return 0;
+     }
+ 
+--- libmusicbrainz-2.1.5/lib/sigclient.cpp.orig	2020-11-24 21:06:49.516590007 +0100
++++ libmusicbrainz-2.1.5/lib/sigclient.cpp	2020-11-24 21:14:26.010783632 +0100
+@@ -40,8 +40,10 @@
+ 
+ #include "sigxdr.h"
+ 
++unsigned
+ char tooShortTRM[] = { 0xf9, 0x80, 0x9a, 0xb1, 0x2b, 0x0f, 0x4d, 0x78, 
+                        0x88, 0x62, 0xfb, 0x42, 0x5a, 0xde, 0x8a, 0xb9 };
++unsigned
+ char sigserverBusyTRM[] = { 0xc4, 0x57, 0xa4, 0xa8, 0xb3, 0x42, 0x4e, 0xc9, 
+                             0x8f, 0x13, 0xb6, 0xbd, 0x26, 0xc0, 0xe4, 0x00 };
+ 
+@@ -128,7 +130,7 @@
+     if (ret == -2)
+     {
+         ret = 0;
+-        strGUID = sigserverBusyTRM;
++        strGUID = reinterpret_cast<const char*>(sigserverBusyTRM);
+     }
+     else
+     if ((ret != -1) && (nBytes == iGUIDSize)) {
+@@ -136,7 +138,7 @@
+         if (memcmp(pBuffer, pBlank, nBytes))
+             strGUID = converter.ToStrGUID(pBuffer, nBytes);
+         else
+-            strGUID = tooShortTRM;
++            strGUID = reinterpret_cast<const char*>(tooShortTRM);
+ 
+         if (strGUID == "") 
+         {

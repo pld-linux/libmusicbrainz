@@ -2,13 +2,14 @@ Summary:	A software library for accesing MusicBrainz servers
 Summary(pl.UTF-8):	Biblioteka umożliwiająca korzystanie z serwerów MusicBrainz
 Name:		libmusicbrainz
 Version:	2.1.5
-Release:	7
+Release:	8
 Epoch:		1
-License:	LGPL
+License:	LGPL v2.1+
 Group:		Libraries
 Source0:	http://ftp.musicbrainz.org/pub/musicbrainz/historical/%{name}-%{version}.tar.gz
 # Source0-md5:	d5e19bb77edd6ea798ce206bd05ccc5f
 Patch0:		%{name}-gcc43.patch
+Patch1:		%{name}-narrowing.patch
 URL:		https://musicbrainz.org/
 BuildRequires:	autoconf >= 2.52
 BuildRequires:	automake
@@ -79,6 +80,7 @@ Wiązania Pythona do libmusicbrainz.
 %prep
 %setup -q
 %patch0 -p1
+%patch1 -p1
 
 %build
 %{__libtoolize}
@@ -104,6 +106,9 @@ cd ..
 
 %py_postclean
 
+# obsoleted by pkg-config
+%{__rm} $RPM_BUILD_ROOT%{_libdir}/libmusicbrainz.la
+
 %clean
 rm -rf $RPM_BUILD_ROOT
 
@@ -112,15 +117,13 @@ rm -rf $RPM_BUILD_ROOT
 
 %files
 %defattr(644,root,root,755)
-%doc AUTHORS README TODO
+%doc AUTHORS ChangeLog README TODO
 %attr(755,root,root) %{_libdir}/libmusicbrainz.so.*.*.*
 %attr(755,root,root) %ghost %{_libdir}/libmusicbrainz.so.4
 
 %files devel
 %defattr(644,root,root,755)
-%doc ChangeLog
 %attr(755,root,root) %{_libdir}/libmusicbrainz.so
-%{_libdir}/libmusicbrainz.la
 %{_includedir}/musicbrainz
 %{_pkgconfigdir}/libmusicbrainz.pc
 
