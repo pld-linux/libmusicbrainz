@@ -26,8 +26,8 @@ diff -urN libmusicbrainz-2.1.5/lib/c_wrapper.cpp libmusicbrainz-2.1.5.new/lib/c_
 --- libmusicbrainz-2.1.5/lib/c_wrapper.cpp	2006-11-14 17:34:49.000000000 +0100
 +++ libmusicbrainz-2.1.5.new/lib/c_wrapper.cpp	2008-10-18 14:03:08.000000000 +0200
 @@ -21,6 +21,8 @@
-      $Id$
- 
+      $Id: c_wrapper.cpp 665 2003-10-16 22:21:10Z robert $
+
  ----------------------------------------------------------------------------*/
 +#include <cstring>
 +
@@ -38,8 +38,8 @@ diff -urN libmusicbrainz-2.1.5/lib/http.cpp libmusicbrainz-2.1.5.new/lib/http.cp
 --- libmusicbrainz-2.1.5/lib/http.cpp	2007-05-11 08:21:21.000000000 +0200
 +++ libmusicbrainz-2.1.5.new/lib/http.cpp	2008-10-18 14:05:44.000000000 +0200
 @@ -22,6 +22,7 @@
-      $Id$
- 
+      $Id: http.cpp 9128 2007-05-11 06:21:20Z luks $
+
  ----------------------------------------------------------------------------*/
 +#include <cstring>
  #include <stdlib.h>

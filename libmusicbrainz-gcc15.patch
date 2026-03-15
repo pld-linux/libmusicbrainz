@@ -1,0 +1,69 @@
+--- libmusicbrainz-2.1.5.orig/lib/diskid.h	2006-11-14 17:34:49.000000000 +0100
++++ libmusicbrainz-2.1.5/lib/diskid.h	2026-03-15 11:29:34.786485442 +0100
+@@ -57,14 +57,14 @@
+ //  cdinfo struct 
+ //
+ 
+-typedef	unsigned char byte;
+-typedef unsigned long dword;
++typedef	unsigned char mb_byte;
++typedef unsigned long mb_dword;
+ 
+ typedef struct {
+-    byte FirstTrack;         // The first track on CD : normally 1
+-    byte LastTrack;          // The last track on CD: max number 99
++    mb_byte FirstTrack;         // The first track on CD : normally 1
++    mb_byte LastTrack;          // The last track on CD: max number 99
+     
+-    dword FrameOffset[100];  // Track 2 is TrackFrameOffset[2] etc.
++    mb_dword FrameOffset[100];  // Track 2 is TrackFrameOffset[2] etc.
+                              // Leadout Track will be TrackFrameOffset[0]
+ 
+ } MUSICBRAINZ_CDINFO, *PMUSICBRAINZ_CDINFO; 
+@@ -96,7 +96,7 @@
+ 
+         void  TestGenerateId();
+         void  GenerateId(PMUSICBRAINZ_CDINFO pCDInfo, char DiscId[33]);
+-        void  ReportError(char *err);
++        void  ReportError(const char *err);
+         Error FillCDInfo(const string &device, MUSICBRAINZ_CDINFO &cdinfo);
+         const string &MakeString(int i);
+ 
+--- libmusicbrainz-2.1.5.orig/lib/diskid.cpp	2006-11-15 10:54:32.000000000 +0100
++++ libmusicbrainz-2.1.5/lib/diskid.cpp	2026-03-15 11:29:34.788529974 +0100
+@@ -46,7 +46,7 @@
+ {
+ }
+ 
+-void DiskId::ReportError(char *err)
++void DiskId::ReportError(const char *err)
+ {
+    m_errorMsg = string(err);
+ }
+--- libmusicbrainz-2.1.5.orig/osdep/mb_linux.h	2006-11-14 17:34:51.000000000 +0100
++++ libmusicbrainz-2.1.5/osdep/mb_linux.h	2026-03-15 11:29:22.452620258 +0100
+@@ -35,7 +35,7 @@
+ 
+ #include <linux/cdrom.h>
+ 
+-typedef char* MUSICBRAINZ_DEVICE;
++typedef const char* MUSICBRAINZ_DEVICE;
+ 
+ 
+ 
+--- libmusicbrainz-2.1.5.orig/lib/rdfextract.cpp	2006-11-14 17:34:49.000000000 +0100
++++ libmusicbrainz-2.1.5/lib/rdfextract.cpp	2026-03-15 11:29:27.190101902 +0100
+@@ -63,10 +63,10 @@
+    RDF_SetBase(parser, "musicbrainz");
+    if (!RDF_Parse(parser, rdfDocument.c_str(), rdfDocument.length(), 1))
+    {
+-       char line[10];
++       char line[32];
+ 
+-       sprintf(line, " on line %d.",
+-               XML_GetCurrentLineNumber(RDF_GetXmlParser(parser)));
++       sprintf(line, " on line %ld.",
++               (long)XML_GetCurrentLineNumber(RDF_GetXmlParser(parser)));
+        error = string("Error: ") + 
+                string(XML_ErrorString(XML_GetErrorCode(
+                       RDF_GetXmlParser(parser)))) +
